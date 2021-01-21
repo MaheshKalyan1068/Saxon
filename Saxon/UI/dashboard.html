@@ -1,0 +1,239 @@
+{% extends "material/base.html " %}
+{% block content %}
+<html>
+   <head>
+      <title>The Materialize Grids Example</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   </head>
+   <style type="text/css">
+       :root {
+  --column-fixed-width: 150px;
+}
+table {
+  width: 100%;
+  font-size: 13px;
+}
+
+/* Table Fixed Column */
+
+table th,
+table td {
+  padding-right: 24px;
+  padding-left: 24px;
+  white-space: nowrap;
+}
+
+table th:last-of-type,
+table td:last-of-type {
+  border-left: 3px solid #d0d0d0;
+  border-bottom: 1px solid #d0d0d0;
+  position: absolute;
+  width: var(--column-fixed-width);
+  right: 0;
+  top: auto;
+}
+
+.scroll {
+  width: calc(100% - var(--column-fixed-width));
+  overflow: auto;
+  /*box-shadow: inset -12px 0 9px -7px rgba(0,0,0,0.25);*/
+  /*overflow-x: scroll;
+  overflow-y: visible;*/
+}
+
+   </style>
+<body>
+  <nav style="background:#7cc026">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"> <img class="responsive-img" src="../static/images/saxonbotlogo.svg" style="width:180px;height:50px"></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Home</a></li>
+        <li><a href="badges.html">Dashboard</a></li>
+
+      </ul>
+    </div>
+  </nav>
+  <div class="container" style="width:90%">
+<div class="card">
+  <div class="scroll">
+    <table class="bordered highlight">
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Item Price</th>
+          <th>Item Name</th>
+          <th>Item Price</th>
+          <th>Item Name</th>
+          <th>Item Price</th>
+          <th>Item Name</th>
+          <th>Item Price</th>
+          <th>Item Name</th>
+          <th>Item Price</th>
+          <th>Item Name</th>
+          <th>Item Price</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Eclair</td>
+          <td>$0.87</td>
+          <td>Eclair</td>
+          <td>$0.87</td>
+          <td>Eclair</td>
+          <td>$0.87</td>
+          <td>Eclair</td>
+          <td>$0.87</td>
+          <td>Eclair</td>
+          <td>$0.87</td>
+          <td>Eclair</td>
+          <td>$0.87</td>
+          <td>Alvin</td>
+        </tr>
+        <tr>
+          <td>Jellybean</td>
+          <td>$3.76</td>
+          <td>Jellybean</td>
+          <td>$3.76</td>
+          <td>Jellybean</td>
+          <td>$3.76</td>
+          <td>Jellybean</td>
+          <td>$3.76</td>
+          <td>Jellybean</td>
+          <td>$3.76</td>
+          <td>Jellybean</td>
+          <td>$3.76</td>
+          <td>Alan</td>
+        </tr>
+         <tr>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Jonathan</td>
+        </tr>
+         <tr>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Jonathan</td>
+        </tr>
+         <tr>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Jonathan</td>
+        </tr>
+         <tr>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Jonathan</td>
+        </tr> <tr>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Jonathan</td>
+        </tr>
+         <tr>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Jonathan</td>
+        </tr>
+         <tr>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Jonathan</td>
+        </tr>
+        <tr>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Lollipop</td>
+          <td>$7.00</td>
+          <td>Jonathan</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div></div>
+   </body>
+</html>
+
+
+
+{% endblock %}
+

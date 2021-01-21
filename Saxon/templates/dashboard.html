@@ -1,0 +1,139 @@
+{% extends "material/base.html " %}
+{% block content %}
+<html>
+   <head>
+      <title>The Materialize Grids Example</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   </head>
+   <style type="text/css">
+       :root {
+  --column-fixed-width: 150px;
+}
+table {
+  width: 100%;
+  height: 700px;
+  font-size: 13px;
+}
+
+/* Table Fixed Column */
+
+table th,
+table td {
+  padding-right: 24px;
+  padding-left: 24px;
+  white-space: nowrap;
+}
+
+
+
+.table-responsive {
+   display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	position: fixed;
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+   </style>
+<body>
+   <div class="navbar-fixed">
+  <nav style="background:#7cc026">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"> <img class="responsive-img" src="../static/images/saxonbotlogo.svg" style="width:180px;height:50px"></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('dashpage') }}">Dashboard</a></li>
+<li><a href="{{ url_for('dochistory') }}">Doc History</a></li>
+          <li><a href="{{ url_for('login') }}">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+  <div class="container" style="width:100%">
+<div class="card">
+
+    <table class="bordered highlight table-responsive">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Fromstack Link</th>
+          <th>Reported By</th>
+          <th>Policy Number</th>
+          <th>Bot Execution Status</th>   
+          <th>Bot Start Time</th>
+          <th>Bot End Time</th>
+          <th>Claim Number</th>
+          <th>Error Details</th>
+          <th>Actions</th>
+          
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+                        {% for i in range(cp) %}
+                        <tr>
+                        
+                            <td>{{ID[i]}}</td>
+                            <td><form action="{{ url_for('link_email') }}" method="post"><input type="hidden" name="formid" value="{{ Formstack_Link[i]}}" />
+                <input type="hidden" name="nid" value="{{ ID[i]}}" />
+                <input type="hidden" name="Formstack_Link" value="{{ Formstack_Link[i]}}" />
+                <button style= "background: transparent;
+    border: none;
+    color: #7cc026;
+    text-decoration: underline;" type = "submit">{{Formstack_Link[i]}}</button></form></td>
+                            <td>{{Name[i]}}</td>              
+                            <td>{{Policy_Number[i]}}</td>
+                            <td>{{Bot_Execution_Status[i]}}</td>
+                            <td>{{Bot_Start_Time[i]}}</td>
+                            <td>{{Bot_End_Time[i]}}</td>
+                            <td>{{Claim_Number[i]}}</td>
+                            <td>{{Details[i]}}</td>
+                             {% if Actions[i] == 'RERUN' %}
+                <td>
+                <form action="{{ url_for('rerun_email') }}" method="post"><input type="hidden" name="formid" value="{{ Formstack_Link[i]}}" />
+                <input type="hidden" name="nid" value="{{ ID[i]}}" />
+                <input type="hidden" name="Formstack_Link" value="{{ Formstack_Link[i]}}" />
+                <button type="submit"  style="background-color: #81c22e !important;" class="waves-effect waves-light btn">RERUN</button></form></td>
+            {% else %}
+                <td>{{Actions[i]}}</td>
+            {% endif %}
+                            
+
+             
+                        </tr>
+                        {% endfor %}
+        </tr>
+      </tbody>
+    </table>
+
+</div></div>
+   </body>
+</html>
+
+
+
+{% endblock %}
+

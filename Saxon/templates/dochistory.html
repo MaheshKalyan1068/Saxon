@@ -1,0 +1,241 @@
+{% extends "material/base.html " %}
+{% block content %}
+<html>
+   <head>
+      <title>The Materialize Grids Example</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+   </head>
+   <style type="text/css">
+       :root {
+  --column-fixed-width: 150px;
+}
+table {
+  width: 100%;
+  font-size: 13px;
+}
+
+/* Table Fixed Column */
+
+table th,
+table td {
+  padding-right: 24px;
+  padding-left: 24px;
+  white-space: nowrap;
+}
+
+.table-responsive {
+<!--   display: block;-->
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+
+/* label color */
+   .input-field label {
+     color: #000;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label {
+     color: #000;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* valid color */
+   .input-field input[type=text].valid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* invalid color */
+   .input-field input[type=text].invalid {
+     border-bottom: 1px solid #000;
+     box-shadow: 0 1px 0 0 #000;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #000;
+   }
+   input:focus {
+  border-bottom: 1px solid black !important;
+  box-shadow: 0 1px 0 0 black !important;
+}
+label.active {
+  color: black !important;
+}
+::-webkit-input-placeholder {
+    color: black;
+    opacity: 1 !important; /* for older chrome versions. may no longer apply. */
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: black;
+    opacity: 1 !important;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: black;
+    opacity: 1 !important;
+}
+
+:-ms-input-placeholder {
+   color: black;
+}
+.datepicker-date-display{
+    background-color: #7cc026;
+}
+   </style>
+<body>
+<div class="navbar-fixed">
+  <nav style="background:#7cc026">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"> <img class="responsive-img" src="../static/images/saxonbotlogo.svg" style="width:180px;height:50px"></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('dashpage') }}">Dashboard</a></li>
+<li><a href="{{ url_for('dochistory') }}">Doc History</a></li>
+          <li><a href="{{ url_for('login') }}">Logout</a></li>
+      </ul>
+    </div>
+    
+  </nav>
+  </div>
+  <div class="container" style="width:100%">
+      <div class="row" style="margin-top:20px">
+
+              <div class="col s3"><input placeholder="From Date" type="text" class="datepicker"></div>
+      <div class="col s3"><input placeholder="To Date" type="text" class="datepicker"></div>
+          <div class="col s3"><input placeholder="Policy number" type="text"></div>
+       <div class="col s3"><input placeholder="Claim number" type="text"></div>
+    </div>
+        <div class="row">
+
+                 <div class="col s3">
+                     <select>
+      <option value="" disabled selected>Status</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Materialize Select</label>
+                     </div>
+
+                 <div class="col s3">
+                <input placeholder="Name" type="text">
+                     </div>
+            <div><a class="btn-floating btn-large waves-effect waves-light" style="background:#7cc026"><i class="material-icons">search</i></a></div>
+      </div>
+
+
+
+  </div>
+<div class="container" style="width:100%">
+<div class="card">
+    <table class="bordered highlight table-responsive">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Policy Number</th>
+          <th>Claim Number</th>
+          <th>Status</th>
+          <th>Date Completed</th>
+        </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+          <td>1</td>
+          <td>Stew Wat</td>
+          <td>P02012020-KY-063960</td>
+          <td>#00100005949</td>
+          <td>Pending</td>
+          <td>06/08/2020</td>
+        </tr>
+      <tr>
+
+          <td>2</td>
+          <td>chris</td>
+          <td>P02012020-KY-063879</td>
+          <td>#00100005948</td>
+          <td>Pending</td>
+          <td>06/08/2020</td>
+
+        </tr>
+      <tr>
+
+          <td>3</td>
+          <td>Yvonne</td>
+          <td>P02012020-JY-098765</td>
+          <td>#00100005946</td>
+          <td>Pending</td>
+          <td>06/08/2020</td>
+
+
+        </tr>
+  <tr>
+          <td>4</td>
+          <td>Mcfield</td>
+          <td>P02012020-KY-063786</td>
+          <td>#00100005947</td>
+          <td>Pending</td>
+          <td>06/08/2020</td>
+        </tr>
+      <tr>
+
+          <td>5</td>
+          <td>John</td>
+          <td>P02012020-KY-063987</td>
+          <td>#00100005945</td>
+          <td>Pending</td>
+          <td>06/08/2020</td>
+        </tr>
+      </tbody>
+    </table>
+
+</div></div>
+<script>
+M.AutoInit();
+ document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.datepicker');
+    var instances = M.Datepicker.init(elems, options);
+  });
+</script>
+ <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+   </body>
+</html>
+
+
+
+{% endblock %}
+

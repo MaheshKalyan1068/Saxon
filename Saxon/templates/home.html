@@ -1,0 +1,228 @@
+{% extends "material/base.html " %}
+{% block content %}
+<html>
+   <head>
+      <title>The Materialize Grids Example</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   </head>
+   <style type="text/css">
+       :root {
+  --column-fixed-width: 150px;
+}
+table {
+  width: 100%;
+  font-size: 13px;
+}
+
+/* Table Fixed Column */
+
+table th,
+table td {
+  padding-right: 24px;
+  padding-left: 24px;
+  white-space: nowrap;
+}
+
+.table-responsive {
+   display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+   </style>
+<body>
+<div class="navbar-fixed">
+  <nav style="background:#7cc026">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo"> <img class="responsive-img" src="../static/images/saxonbotlogo.svg" style="width:180px;height:50px"></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('dashpage') }}">Dashboard</a></li>
+<li><a href="{{ url_for('dochistory') }}">Doc History</a></li>
+                  <li><a href="{{ url_for('login') }}">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+<div class="container" style="width:100%">
+<div class="card">
+    <table class="striped bordered highlight table-responsive">
+      <thead>
+        <tr>
+          <th></th>
+            <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Are you insured with Saxon?</td>
+          <td>{{dictcon["Are you insured with Saxon?:"]}}</td>
+        </tr>
+     <tr>
+          <td>Do you believe you were at fault for the accident?:</td>
+          <td>{{dictcon["Do you believe you were at fault for the accident?:"]}}</td>
+        </tr>
+      <tr>
+          <td>Are you Claiming for damage to your vehicle on Your Policy (Only applies If you have the Applicable Coverage):</td>
+          <td>{{dictcon["Are you Claiming for damage to your vehicle on Your Policy (Only applies If you have the Applicable Coverage):"]}}</td>
+        </tr>
+        <tr>
+            <td> Please provide your policy number:</td>
+            <td>{{dictcon["Please provide your policy number:"]}}</td>
+        </tr>
+         <tr>
+            <td>Vehicle/Property Owner's Name:</td>
+            <td>{{dictcon["AVehicle/Property Owner's Name::"]}}</td>
+        </tr> <tr>
+            <td>Vehicle/Property Owner's Phone Number:</td>
+            <td>{{dictcon["Vehicle/Property Owner's Phone Number::"]}}</td>
+        </tr> <tr>
+            <td>Vehicle/Property Owner's Email Address:</td>
+            <td>{{dictcon["Vehicle/Property Owner's Email Address::"]}}</td>
+        </tr> <tr>
+            <td>Was the Owner the Driver?:</td>
+            <td>{{dictcon["Was the Owner the Driver?:"]}}</td>
+        </tr> <tr>
+            <td>Driver's Name:</td>
+            <td>{{dictcon["Driver's Name::"]}}</td>
+        </tr> <tr>
+            <td>Driver's phone number:</td>
+            <td>{{dictcon["Driver's phone number::"]}}</td>
+        </tr> <tr>
+            <td>Driver's email address:</td>
+            <td>{{dictcon["Driver's email address::"]}}</td>
+        </tr> <tr>
+            <td>Vehicle or Property?:</td>
+            <td>{{dictcon["Vehicle or Property?:"]}}</td>
+        </tr>
+         <tr>
+            <td>Vehicle Registration Number:</td>
+            <td>{{dictcon["Vehicle Registration Number::"]}}</td>
+        </tr> <tr>
+            <td>Vehicle Make:</td>
+            <td>{{dictcon["Vehicle Make::"]}}</td>
+        </tr>
+      <tr>
+            <td>Vehicle Model:</td>
+            <td>{{dictcon["Vehicle Model::"]}}</td>
+        </tr>
+      <tr>
+            <td>Vehicle VIN:</td>
+            <td>{{dictcon["Vehicle VIN::"]}}</td>
+        </tr>
+      <tr>
+            <td>Property Details:</td>
+            <td>{{dictcon["Property Details::"]}}</td>
+        </tr>
+      <tr>
+            <td>Date and time of accident:</td>
+            <td>{{dictcon["Date and time of accident::"]}}</td>
+        </tr>
+      <tr>
+            <td>Location of accident:</td>
+            <td>{{dictcon["Location of accident::"]}}</td>
+        </tr><tr>
+            <td>Description of Accident:</td>
+            <td>{{dictcon["Description of Accident::"]}}</td>
+        </tr>
+      <tr>
+            <td>Was there damage to your vehicle/property?:</td>
+            <td>{{dictcon["Was there damage to your vehicle/property?:"]}}</td>
+        </tr>
+      <tr>
+            <td>Description of damage to your vehicle/property:</td>
+            <td>{{dictcon["Description of Damage to the your vehicle/property::"]}}</td>
+        </tr>
+      <tr>
+            <td>Was there damage to the other vehicle/property?:</td>
+            <td>{{dictcon["Was there damage to other vehicle/property?:"]}}</td>
+        </tr>
+      <tr>
+            <td>Description of Damage to the other vehicle/property:</td>
+            <td>{{dictcon["Description of damage to other vehicle/property::"]}}</td>
+        </tr>
+      <tr>
+            <td>Were any of the vehicles involved in the accident towed?:</td>
+            <td>{{dictcon["Were any of the vehicles involved in the accident towed?:"]}}</td>
+        </tr>
+ <tr>
+            <td>Where were the vehicles towed?:</td>
+            <td>{{dictcon["Where were the vehicles towed?:"]}}</td>
+        </tr>
+ <tr>
+            <td>Were the Police Present?:</td>
+            <td>{{dictcon["Were the Police Present?:"]}}</td>
+        </tr>
+ <tr>
+            <td>Was anyone injured?:</td>
+            <td>{{dictcon["Was anyone injured?:"]}}</td>
+        </tr>
+ <tr>
+            <td>Description of Injuries:</td>
+            <td>{{dictcon["Description of Injuries:"]}}</td>
+        </tr>
+ <tr>
+            <td>Was anyone taken to Hospital?:</td>
+            <td>{{dictcon["Was anyone taken to Hospital?:"]}}</td>
+        </tr>
+ <tr>
+            <td>Do you have the other party's details?:</td>
+            <td>{{dictcon["Do you have the other party's details?:"]}}</td>
+        </tr>
+<tr>
+            <td>Other Party's Name:</td>
+            <td>{{dictcon["Other Party's Name::"]}}</td>
+        </tr>
+<tr>
+            <td>Other party's phone number:</td>
+            <td>{{dictcon["Other party's phone number::"]}}</td>
+        </tr>
+<tr>
+            <td>Other party's email address:</td>
+            <td>{{dictcon["Other party's email address::"]}}</td>
+        </tr>
+<tr>
+            <td>Other party's Insurance Company:</td>
+            <td>{{dictcon["Other party's Insurance Company::"]}}</td>
+        </tr>
+<tr>
+            <td>Other Party's Policy Number (Optional):</td>
+            <td>{{dictcon["Other Party's Policy Number (Optional)::"]}}</td>
+        </tr>
+<tr>
+            <td>Please Sign:</td>
+            <td>{{dictcon["Please Sign::"]}}</td>
+        </tr>
+<tr>
+            <td>Date of Signature:</td>
+            <td>{{dictcon["Date of Signature:"]}}</td>
+        </tr>
+<tr>
+            <td>Additional Notes:</td>
+            <td>{{dictcon["Additional Notes::"]}}</td>
+        </tr>
+<tr>
+            <td>Driver's License:</td>
+            <td>{{dictcon["Driver's License:"]}}</td>
+        </tr>
+<tr>
+            <td>Vehicle Logbook (Certificate of Ownership page):</td>
+            <td>{{dictcon["Vehicle Logbook (Certificate of Ownership page):"]}}</td>
+        </tr>
+<tr>
+            <td>Repair Estimate:</td>
+            <td>{{dictcon["Repair Estimate:"]}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div></div>
+   </body>
+</html>
+
+
+
+{% endblock %}
+
